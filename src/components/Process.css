@@ -1,0 +1,174 @@
+.pr { min-height: auto; padding: 90px 0; }
+.pr-grad {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Two-column layout ---------- */
+.pr-wrap {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 60px;
+  align-items: start;
+}
+.pr-side {
+  position: sticky;
+  top: 120px;
+}
+.pr-side p { margin-bottom: 26px; }
+.pr-eyebrow {
+  display: inline-block;
+  padding: 6px 14px;
+  margin-bottom: 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--g2);
+  font-family: Sora, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pr-note {
+  margin-top: 30px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+.pr-note b { display: block; font-family: Sora, sans-serif; font-size: 0.95rem; margin-bottom: 4px; }
+.pr-note small { color: var(--muted); font-size: 0.86rem; line-height: 1.5; display: block; }
+
+/* ---------- Timeline ---------- */
+.pr-steps { list-style: none; margin: 0; padding: 0; }
+.pr-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 22px;
+  padding-bottom: 22px;
+}
+.pr-step::before {            /* vertical line between steps */
+  content: "";
+  position: absolute;
+  left: 27px;
+  top: 58px;
+  bottom: 2px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--g2), transparent);
+  opacity: 0.55;
+}
+.pr-step:last-child { padding-bottom: 0; }
+.pr-step:last-child::before { display: none; }
+
+.pr-badge {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--grad);
+  color: #fff;
+  font-family: Sora, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 10px 28px -8px var(--glow);
+}
+.pr-card {
+  padding: 22px 24px;
+  border-radius: 20px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.pr-step:hover .pr-card {
+  transform: translateX(6px);
+  border-color: color-mix(in srgb, var(--g2) 55%, transparent);
+  box-shadow: 0 22px 44px -26px var(--glow);
+}
+.pr-card h3 { font-family: Sora, sans-serif; font-size: 1.15rem; margin: 0 0 6px; }
+.pr-card p { font-size: 0.94rem; margin: 0 0 14px; max-width: none; }
+.pr-out {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.pr-out i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--grad);
+}
+
+/* ---------- FAQ ---------- */
+.pr-faq {
+  max-width: 820px;
+  margin: 80px auto 0;
+}
+.pr-faq h3 {
+  font-family: Sora, sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0 0 24px;
+}
+.pr-faq details {
+  margin-bottom: 12px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  transition: border-color 0.25s;
+}
+.pr-faq details[open] { border-color: color-mix(in srgb, var(--g2) 55%, transparent); }
+.pr-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  cursor: pointer;
+  list-style: none;
+  font-family: Sora, sans-serif;
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+.pr-faq summary::-webkit-details-marker { display: none; }
+.pr-faq summary::after {
+  content: "+";
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--grad);
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+.pr-faq details[open] summary::after { content: "–"; }
+.pr-faq details p { margin: 0; padding: 0 22px 20px; max-width: none; font-size: 0.93rem; }
+.pr-faq summary:focus-visible { outline: 2px solid var(--g2); outline-offset: 3px; border-radius: 18px; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 900px) {
+  .pr-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .pr-side { position: static; }
+}
+@media (max-width: 520px) {
+  .pr-step { grid-template-columns: 44px 1fr; gap: 14px; }
+  .pr-badge { width: 44px; height: 44px; font-size: 0.85rem; }
+  .pr-step::before { left: 21px; top: 46px; }
+  .pr-card { padding: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pr-card { transition: none; }
+  .pr-step:hover .pr-card { transform: none; }
+}

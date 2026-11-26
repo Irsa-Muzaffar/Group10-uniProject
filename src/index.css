@@ -1,0 +1,55 @@
+:root {
+  /* Rose sunset theme (dark, default) */
+  --bg: #1a0a14;
+  --bg2: #3b1230;
+  --text: #fff1f5;
+  --muted: #d1a3b8;
+  --card: rgba(255, 255, 255, 0.06);
+  --line: rgba(255, 255, 255, 0.14);
+  --nav: rgba(255, 255, 255, 0.08);
+  --navtext: #ffe4ec;
+  --glow: rgba(244, 63, 94, 0.45);
+
+  /* gradient colors: rose -> pink -> amber */
+  --g1: #f43f5e;
+  --g2: #fb7185;
+  --g3: #fbbf24;
+  --grad: linear-gradient(120deg, var(--g1), var(--g2) 55%, var(--g3));
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: #fff5f7;
+  --bg2: #ffdbe4;
+  --text: #3b1230;
+  --muted: #8a5a72;
+  --card: rgba(255, 255, 255, 0.8);
+  --line: rgba(190, 40, 90, 0.18);
+  --nav: rgba(255, 255, 255, 0.85);
+  --navtext: #6b1d46;
+  --glow: rgba(244, 63, 94, 0.3);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  background-image:
+    radial-gradient(60rem 40rem at 85% -10%, var(--bg2), transparent 70%),
+    radial-gradient(40rem 30rem at 0% 40%, color-mix(in srgb, var(--g2) 14%, transparent), transparent 70%);
+  background-attachment: fixed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

@@ -1,0 +1,234 @@
+.svc { min-height: auto; padding: 90px 0; }
+
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Heading ---------- */
+.svc-head { text-align: center; max-width: 680px; margin: 0 auto 34px; }
+.svc-head p { margin: 0 auto; }
+.svc-eyebrow {
+  display: inline-block;
+  padding: 6px 14px;
+  margin-bottom: 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--g2);
+  font-family: Sora, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Tabs ---------- */
+.svc-tabs {
+  display: flex;
+  gap: 6px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 40px;
+  padding: 6px;
+  border-radius: 999px;
+  background: var(--nav);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.svc-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--navtext);
+  font-family: Sora, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+}
+.svc-tab.active {
+  background: var(--grad);
+  color: #fff;
+  box-shadow: 0 8px 24px -8px var(--glow);
+}
+.svc-tab:focus-visible,
+.svc-link:focus-visible {
+  outline: 2px solid var(--g2);
+  outline-offset: 3px;
+}
+
+/* ---------- Panel ---------- */
+.svc-panel { animation: svc-in 0.45s ease both; }
+@keyframes svc-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+.svc-intro { max-width: 720px; margin-bottom: 26px; }
+.svc-intro h3 {
+  font-family: Sora, sans-serif;
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+.svc-intro p { margin: 0; }
+
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 18px;
+}
+
+/* ---------- Service card ---------- */
+.svc-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 26px;
+  border-radius: 22px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.svc-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: var(--grad);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.svc-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--g2) 55%, transparent);
+  box-shadow: 0 24px 50px -24px var(--glow);
+}
+.svc-card:hover::before { opacity: 1; }
+
+.svc-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.svc-num {
+  font-family: Sora, sans-serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.svc-time {
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.74rem;
+  white-space: nowrap;
+}
+.svc-card h4 {
+  font-family: Sora, sans-serif;
+  font-size: 1.12rem;
+  margin: 0 0 8px;
+}
+.svc-card p { font-size: 0.93rem; margin: 0 0 16px; }
+.svc-card ul {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.svc-card li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.88rem;
+}
+.svc-card li svg { flex: none; color: var(--g2); }
+.svc-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--g2);
+  font-family: Sora, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.svc-link svg { transition: transform 0.25s; }
+.svc-link:hover svg { transform: translateX(5px); }
+
+/* ---------- Included strip ---------- */
+.svc-included { margin-top: 64px; }
+.svc-included h3 {
+  font-family: Sora, sans-serif;
+  font-size: 1.3rem;
+  margin: 0 0 18px;
+  text-align: center;
+}
+.svc-inc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+.svc-inc {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+.svc-inc-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: var(--grad);
+  color: #fff;
+}
+.svc-inc b { display: block; font-family: Sora, sans-serif; font-size: 0.95rem; margin-bottom: 2px; }
+.svc-inc small { color: var(--muted); font-size: 0.84rem; line-height: 1.5; display: block; }
+
+/* ---------- CTA banner ---------- */
+.svc-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 48px;
+  padding: 32px 36px;
+  border-radius: 26px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(30rem 14rem at 100% 0%, color-mix(in srgb, var(--g1) 28%, transparent), transparent 70%),
+    var(--card);
+}
+.svc-cta h3 { font-family: Sora, sans-serif; font-size: 1.4rem; margin: 0 0 6px; }
+.svc-cta p { margin: 0; }
+
+@media (max-width: 700px) {
+  .svc-tabs { width: 100%; }
+  .svc-tab { flex: 1; justify-content: center; padding: 11px 10px; font-size: 0.82rem; }
+  .svc-cta { flex-direction: column; align-items: flex-start; padding: 26px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .svc-panel { animation: none; }
+  .svc-card, .svc-link svg { transition: none; }
+}
